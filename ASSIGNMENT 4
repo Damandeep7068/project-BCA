@@ -1,0 +1,65 @@
+#include <iostream>
+using namespace std;
+
+class computation {
+
+public:
+    // Method to perform calculation on two integer parameters
+    int compute(int a, int b) {
+        return a + b;
+    }
+
+    // Method to perform calculation on one integer and one float parameter
+    float compute(int a, float b) {
+        return a + b;
+    }
+
+    // Method to perform calculation on one integer and one double parameter
+    double compute(int a, double b) {
+        return a + b;
+    }
+
+    // Method to perform calculation on character parameters
+    int compute(char a, char b) {
+        return static_cast<int>(a) + static_cast<int>(b);
+    }
+
+    // Method to perform calculation on one character and one integer parameter
+    int compute(char a, int b) {
+        return static_cast<int>(a) + b;
+    }
+
+    // Method to perform calculation even if no value is provided
+    int compute() {
+        return 0; // Default result when no values are provided
+    }
+};
+
+int main() {
+    computation calculator;
+
+    // Input from the user
+    int intInput;
+    float floatInput;
+    double doubleInput;
+    char charInput1, charInput2;
+
+    cout << "Enter two integers: ";
+    cin >> intInput >> floatInput;
+    cout << "Enter a float: ";
+    cin >> floatInput;
+    cout << "Enter a double: ";
+    cin >> doubleInput;
+    cout << "Enter two characters: ";
+    cin >> charInput1 >> charInput2;
+
+    // Displaying results
+    cout << "Result 1: " << calculator.compute(intInput, intInput) << "\n";
+    cout << "Result 2: " << calculator.compute(intInput, floatInput) << "\n";
+    cout << "Result 3: " << calculator.compute(intInput, doubleInput) << "\n";
+    cout << "Result 4: " << calculator.compute(charInput1, charInput2) << "\n";
+    cout << "Result 5: " << calculator.compute(charInput1, intInput) << "\n";
+    cout << "Result 6: " << calculator.compute() << "\n";
+
+    return 0;
+}
